@@ -40,41 +40,18 @@
         </a>
       </li>
       <li>
-        <a href="forms.html">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Forms</span>
+        <a href="collection_ledger.php">
+        <i class="fa-solid fa-file-invoice-dollar"></i><span>Collection Ledger</span>
         </a>
       </li>
-      
       <li>
-        <a href="tables.html">
-          <i class="zmdi zmdi-grid"></i> <span>Tables</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="calendar.html">
+        <a href="calendar.php">
           <i class="zmdi zmdi-calendar-check"></i> <span>Calendar</span>
           <small class="badge float-right badge-light">New</small>
         </a>
       </li>
 
-      <li>
-        <a href="profile.html">
-          <i class="zmdi zmdi-face"></i> <span>Profile</span>
-        </a>
-      </li>
 
-      <li>
-        <a href="login.html" target="_blank">
-          <i class="zmdi zmdi-lock"></i> <span>Login</span>
-        </a>
-      </li>
-
-       <li>
-        <a href="register.html" target="_blank">
-          <i class="zmdi zmdi-account-circle"></i> <span>Registration</span>
-        </a>
-      </li>
 
       <li class="sidebar-header">LABELS</li>
       <li><a href="javaScript:void();"><i class="zmdi zmdi-coffee text-danger"></i> <span>Important</span></a></li>

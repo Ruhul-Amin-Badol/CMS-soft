@@ -17,7 +17,7 @@ require_once('header.php');
       <div class="col-lg-8">
          <div class="card">
            <div class="card-body">
-           <div class="card-title">Payment History</div>
+           <div class="card-title">Collection Ledger</div>
            <hr>
            
             <div class="form-group">

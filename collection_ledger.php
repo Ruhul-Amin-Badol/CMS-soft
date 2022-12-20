@@ -10,13 +10,14 @@ require_once('header.php');
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-
 <!--End topbar header-->
 <!-- navbar start-->
 <?php
   require_once('navber.php');
 ?>
 <!-- navbar end-->
+
+
 <div class="clearfix"></div>
 	
   <div class="content-wrapper">
@@ -29,53 +30,43 @@ require_once('header.php');
         <div class="col-sm-12" >
 			  <div class="table-responsive" >
         <div class="container mt-3">
-          <a href="collection_manage.php">
-          <button type="button" class="btn btn-danger px-5">Add Collection <i class="fa-solid fa-money-check-dollar"></i></button></a>
+          <a href="student_manage.php">
+        <button class="btn btn-danger mt 4">Add Student <i class="fa-solid fa-user-plus"></i></button></a>
     <hr>
-        <table  id="colltable" class="table table-striped table-hover table-bordered text- " style="width:100%">
+        <table  id="example" class="table table-striped table-hover table-bordered text- " style="width:100%">
             <thead class="table-warning">
-                    <tr>
-                        <th>student Id</th>
-                        <th>collection date</th>
-                        <th>collection amount</th>
-                        <th>collection note</th>
-                        <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  <?php
-                        $total_collection = 0;
-                        $sql2 = "SELECT * FROM collectionview";
-                        $result = mysqli_query($conn,$sql2);
-                        while($rows2 = mysqli_fetch_assoc($result))
-                        {
-                        $collid=$rows2['collid'];
-                        $total_collection= $total_collection + $rows2['collamount'];
+                <tr>
+                    <th> SN </th>
+                    <th>Student Name</th>
+                    <th>Student Image</th>
+                    <th>Course Name </th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+                    $sn = 1;
+                    $sql2="SELECT student.*, batchmanage.coursename, student.totalfee, student.collectedfee, student.dueamount, student.sid  FROM student 
+                    INNER JOIN batchmanage  ON batchmanage.bid = student.bid";
+                    $result=mysqli_query($conn,$sql2);
+                    while($rows2=mysqli_fetch_assoc($result))
+                    {
+                    $sid=$rows2['sid'];
                     ?>
                     <tr>
-                        <td class="text-white"><?php echo $rows2['studentname'];?></td>
-                        <td class="text-white"><?php echo $rows2['colldate'];?></td>
-                        <td class="text-white"><?php echo $rows2['collamount'];?></td>
-                        <td class="text-white"><?php echo $rows2['collnote'];?></td>
-                        <td>
-                        <a href="collection_edit.php?sid=<?php echo $collid;?>"><button type="button" class=" btn btn-success"><i class="fa-sharp fa-solid fa-user-pen"></i></button></a>
-                        <a href="collection_delete.php?sid=<?php echo $collid; ?>"><button type="button" class=" btn btn-danger"><i class="fa-sharp fa-solid fa-trash"></i></button></a>
-                        </td>
-                    </tr>
+                        <td class="text-white"><?php echo $sn++;?></td>
+                        <td class="text-white"><a href="collection_history.php?sid=<?php echo $sid; ?>">   
+                        <?php echo $rows2['studentname']; ?> </a>  </td>
+                        <td><img src="<?php echo $rows2['stdimage'];?>"height=80; width=60;></td>
+                        <td class="text-white"><?php echo $rows2['coursename'];?></td>
+                </tr>
                     <?php
                     }
                     ?>
-                    <tr>
-                      <td class="text-white font-weight-bold font-italic">Total Collection:</td>
-                      <td></td>
-                      <td class="text-white font-weight-bold"><?php echo number_format ($total_collection,2);?></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
+                    </tbody>
             </table>
             </div>
-            </div>
-          </div>
+        </div>
         </div>
      
        <!--End Row-->
@@ -137,11 +128,12 @@ require_once('header.php');
   </div><!--End wrapper-->
   <script>
 		$(document).ready(function () {
-			$('#colltable').DataTable();
+			$('#example').DataTable();
 		});
 	</script>
+ 
 
-	
+	  
 </body>
-  
 </html>
+ 

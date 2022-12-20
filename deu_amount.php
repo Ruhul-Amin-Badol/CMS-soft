@@ -54,9 +54,9 @@ require_once('header.php');
                         }
                     ?>
                   <tr>
-                        <td>Total Due </td>
+                        <td class="text-white font-weight-bold font-italic">Total Due </td>
                         <td> </td>
-                        <td><?php echo number_format($total_due, 2);?></td>
+                        <td class="text-white font-weight-bold"><?php echo number_format($total_due, 2);?></td>
                    </tr>
                   </tbody>
                 </table>
