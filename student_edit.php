@@ -47,7 +47,7 @@
            </div>
            <div class="form-group">
             <label for="input-4">Image</label>
-            <input type="file" class="form-control" id="stdimage" value="<?php echo $stdimage;?>" name="stdimage">
+            <input type="file" class="form-control" id="image" value="<?php echo $stdimage;?>" name="image">
            </div>  
            <div class="form-group">
             <label for="input-2">Address</label>
